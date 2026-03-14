@@ -1,99 +1,71 @@
-
-<p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/changelog-updating-blue.svg" alt="Changelog"></a>
-  <a href="https://buymeacoffee.com/varnasra"><img src="https://img.shields.io/badge/Support-BuyMeACoffee-yellow.svg" alt="Support Me"></a>
-</p>
-
-
 # BridgeStack
 
-> API backend bridging RootStack data to ViewStack frontend.
+**API backend bridging OpenStacks data layers.**
+
+[![Part of OpenStacks](https://img.shields.io/badge/Part%20of-OpenStacks-blue)](https://openstacks.dev)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Status: Early Stage](https://img.shields.io/badge/Status-Early%20Stage-orange)]()
+
+> The API layer for OpenStacks — connecting database to frontend.
 
 ---
 
-![BridgeStack Banner Placeholder](https://via.placeholder.com/1200x300.png?text=BridgeStack+-+OpenStacks+API+Layer)
+## Status
 
----
+**This repository is in early development.** The architecture and goals are documented below, but the FastAPI application has not yet been implemented. Contributions are welcome to help build this out.
 
-# 📚 Table of Contents
-- [About](#about)
-- [Architecture](#architecture)
-- [Folder Structure](#folder-structure)
-- [Installation & Usage](#installation--usage)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [License](#license)
-- [Support Me](#support-me)
-- [Citation](#citation)
-- [Contact](#contact)
-- [Changelog](#changelog)
+## Vision
 
----
+BridgeStack will provide a REST API layer connecting [RootStack](https://github.com/Varnasr/RootStack) (database) to [ViewStack](https://github.com/Varnasr/ViewStack) (frontend):
 
-# 📖 About
+- **FastAPI application** with auto-generated API documentation
+- **Data models** mapped to RootStack schemas
+- **RESTful endpoints** for querying development sector data
+- **Authentication** for write operations
 
-**BridgeStack** provides APIs for connecting RootStack's data to ViewStack's user interface.
-Built using FastAPI for high-speed, production-ready backend services.
+### Planned Architecture
 
----
-
-# 🏛️ Architecture
-
-```plaintext
-[ RootStack (Database Layer) ]
-         ⇅
-[ BridgeStack (API Layer) ]
-         ⇅
-[ ViewStack (Frontend Layer) ]
+```
+RootStack (Database) → BridgeStack (API) → ViewStack (Frontend)
 ```
 
----
+### Planned Structure
 
-# 📁 Folder Structure
-
-```plaintext
+```
 BridgeStack/
 ├── app/
-│   ├── routes/
-│   ├── models/
-│   ├── schemas/
-│   ├── core/
-├── tests/
-├── main.py
-├── README.md
+│   ├── main.py          # FastAPI application entry point
+│   ├── routes/          # API endpoint definitions
+│   ├── models/          # SQLAlchemy/Pydantic models
+│   ├── schemas/         # Request/response schemas
+│   └── core/            # Config, database connection, auth
+├── tests/               # API tests
+├── requirements.txt     # Python dependencies
+└── docker-compose.yml   # Local development setup
 ```
 
----
+## How to Contribute
 
-# ⚙️ Installation & Usage
+This is a great repo to contribute to if you have experience with:
+- FastAPI or similar Python web frameworks
+- REST API design
+- SQLAlchemy and database integrations
+- API testing (pytest, httpx)
 
-```bash
-git clone https://github.com/Varnasr/BridgeStack.git
-cd BridgeStack
-pip install -r requirements.txt
-uvicorn main:app --reload
-```
+See the [OpenStacks hub](https://github.com/Varnasr/OpenStacks-for-Change) for ecosystem-wide contribution guidelines.
 
----
+## How It Connects
 
-# 🛣️ Roadmap
+| Stack | Role | Link |
+|-------|------|------|
+| [RootStack](https://github.com/Varnasr/RootStack) | Database schemas & seed data | Provides data to BridgeStack |
+| **BridgeStack** (this repo) | API backend (FastAPI) | You are here |
+| [ViewStack](https://github.com/Varnasr/ViewStack) | Frontend UI | Consumes BridgeStack API |
 
-- [ ] Add authentication layer (optional)
-- [ ] Expand API endpoints
-- [ ] Add automated API documentation enhancements
-- [ ] Integrate testing and validation frameworks
+## License
 
----
-
-# 🤝 Contributing
-(Contributing instructions identical.)
+MIT — free to use, modify, and share. See [LICENSE](LICENSE).
 
 ---
 
-
----
-
-<p align="center">
-Made with ❤️ by <b>Varna Sri Raman</b> • <a href="https://buymeacoffee.com/varnasra">Support my work</a> • <a href="mailto:varna.sr@gmail.com">Contact</a>
-</p>
+**Created by [Varna Sri Raman](https://github.com/Varnasr)** — Development Economist & Social Researcher
