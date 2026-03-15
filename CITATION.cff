@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you reference this project, please cite it as below."
+type: software
+title: "BridgeStack"
+abstract: "FastAPI backend connecting RootStack database to the OpenStacks frontend."
+authors:
+  - family-names: "Sri Raman"
+    given-names: "Varna"
+version: 0.2.0
+date-released: "2025-04-28"
+license: MIT
+url: "https://openstacks.dev"
+repository-code: "https://github.com/Varnasr/BridgeStack"
+keywords:
+  - FastAPI
+  - REST API
+  - development data
+  - backend
