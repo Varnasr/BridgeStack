@@ -1,19 +1,20 @@
 name: Changelog
 
 on:
-  push:
-    branches:
-      - main
   release:
     types: [created]
 
 jobs:
   generate_changelog:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Generate Changelog
-        uses: heinrichreimer/github-changelog-generator-action@v2.2.2
+        uses: heinrichreimer/github-changelog-generator-action@v2.4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           output: CHANGELOG.md
