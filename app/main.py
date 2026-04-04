@@ -1,8 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy import text
 
-from app.core.config import settings
-from app.core.database import Base, engine
+from app.core.config import logger, settings
+from app.core.database import Base, engine, get_db
 from app.routes import geography, indicators, policies, sectors, tools
 
 Base.metadata.create_all(bind=engine)
@@ -29,6 +30,8 @@ app.include_router(indicators.router, prefix="/api/v1")
 app.include_router(policies.router, prefix="/api/v1")
 app.include_router(tools.router, prefix="/api/v1")
 
+logger.info("BridgeStack %s started", settings.app_version)
+
 
 @app.get("/", tags=["Health"])
 def root():
@@ -50,4 +53,19 @@ def root():
 
 @app.get("/health", tags=["Health"])
 def health_check():
-    return {"status": "healthy"}
+    db = next(get_db())
+    try:
+        db.execute(text("SELECT 1"))
+        db_status = "connected"
+    except Exception:
+        db_status = "unavailable"
+        logger.warning("Health check: database unreachable")
+    finally:
+        db.close()
+
+    status = "healthy" if db_status == "connected" else "degraded"
+    return {
+        "status": status,
+        "version": settings.app_version,
+        "database": db_status,
+    }

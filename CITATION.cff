@@ -6,8 +6,8 @@ abstract: "FastAPI backend connecting RootStack database to the OpenStacks front
 authors:
   - family-names: "Sri Raman"
     given-names: "Varna"
-version: 0.2.0
-date-released: "2025-04-28"
+version: 0.3.0
+date-released: "2026-04-04"
 license: MIT
 url: "https://openstacks.dev"
 repository-code: "https://github.com/Varnasr/BridgeStack"
