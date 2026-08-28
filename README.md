@@ -2,8 +2,24 @@
 
 **API backend bridging OpenStacks data layers.**
 
-[![CI](https://github.com/Varnasr/BridgeStack/actions/workflows/ci.yml/badge.svg)](https://github.com/Varnasr/BridgeStack/actions/workflows/ci.yml)
+> ## ⚠️ This repository is retired
+>
+> **BridgeStack is archived and read-only.** It is no longer maintained and will not
+> receive updates, dependency bumps, or responses to issues. Do not deploy it: an
+> unmaintained FastAPI service with pinned, unpatched dependencies should not be
+> exposed to a network.
+>
+> BridgeStack was the API layer of a RootStack → BridgeStack → ViewStack pipeline.
+> That pipeline carried most of the OpenStacks maintenance cost and the research
+> toolkits never actually depended on it, so all three have been retired together.
+>
+> **Nothing has been deleted.** The code stays public, forkable, and citable, and it
+> remains a reasonable reference for a small FastAPI project with Docker and tests.
+>
+> Full reasoning: the [OpenStacks maintenance policy](https://github.com/Varnasr/OpenStacks-for-Change/blob/main/MAINTENANCE.md).
+
 [![Part of OpenStacks](https://img.shields.io/badge/Part%20of-OpenStacks-blue)](https://openstacks.dev)
+[![Status: Retired](https://img.shields.io/badge/Status-Retired-64748b?style=flat-square)](https://github.com/Varnasr/OpenStacks-for-Change/blob/main/MAINTENANCE.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue)]()
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115%2B-009688)]()
@@ -130,7 +146,7 @@ BridgeStack/
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. Areas where contributions are welcome:
+See [contributing guidelines](https://github.com/Varnasr/.github/blob/main/CONTRIBUTING.md) for guidelines. Areas where contributions are welcome:
 
 - Additional query endpoints and aggregations
 - Pagination and rate limiting
